@@ -52,7 +52,7 @@ public class StudentController {
 		else
 		{
 			model.addAttribute("msg","Invalid gmail or password");
-			return "redirect:/registration";
+			return "login";
 		}
 	}
 	@PostMapping("insertlogindata") //It is Used to save the TeachersLogin data These can be done if TeacherLogin is not exist
@@ -388,7 +388,7 @@ public class StudentController {
          }
         
         subjrepo.save(updateddata);
-        return "redirect:/getStudentData"; // Redirect to the page displaying all subjects
+        return "redirect:/getData"; // Redirect to the page displaying all subjects
     }
     @PostMapping("/search") // Through this we can search Data based on rollNumber
     public String SearchData(@RequestParam("keyword") String keyword,Model model)
