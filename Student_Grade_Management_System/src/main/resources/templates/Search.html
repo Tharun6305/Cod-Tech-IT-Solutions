@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	</head>
+	<body>
+	  
+	  <div class="container" style="background-color: antiquewhite;">
+		<h5>STUDENT NAME:=
+			<span th:text="${stname}"></span>
+		</h5>
+		<a th:href="@{/loadPage}" class="btn btn-primary" style="text-align: right;">Add New Student</a>
+      <table class="table table-stripped" style="border-radius: 20px; border: paleturquoise; box-shadow:palegreen; background-color: antiquewhite;">
+        <thead>
+            <tr>
+                <th>Subject Name</th>
+                <th>Obtained Marks</th>
+                <th>Subject Grade</th>
+                <th>Total Marks</th>
+                <th>Delete</th>
+                <th>Edit</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr th:each="student : ${listofData}">
+                <!-- Display the student name for the first subject -->
+               
+                <!-- Display the subject details -->
+                <td th:text="${student.subjectname}"></td>
+                 <td th:text="${student.obtainedmarks}"></td>
+                <td th:text="${student.subjectwisegrade}"></td>
+                <td th:text="${student.totalmarks}"></td>
+                <td>
+					<form th:action="@{delete}" method="post">
+						<input type="hidden" name="sno" th:value="${student.sno}">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+				</td>
+				<td>
+					<form th:action="@{edit}" method="post">
+						<input type="hidden" name="sno" th:value="${student.sno}">
+						<input type="submit" value="Edit" class="btn btn-primary">
+					</form>
+				</td>
+				
+            </tr>
+        </tbody>
+    </table>
+    <h5>Final Grade:=
+			<span th:text="${overallgrade}"></span>
+		</h5>
+		<hr>
+	<h5>Total Percentage:=
+			<span th:text="${percentage}"></span>
+		</h5>	<hr>
+	</div>	
+</body>
+</html>
