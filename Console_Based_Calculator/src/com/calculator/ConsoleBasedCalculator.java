@@ -15,28 +15,37 @@ public class ConsoleBasedCalculator {
 			double num2 = in.nextDouble();
 			System.out.println("Enter the operation like + - * / %:=");
 			String choice = in.next();
-			switch (choice) {
+			switch (choice) //Switch cases for performing all operations based on user choice
+			{
+                          case "+":             
 
-			case "+":
-
-				System.out.println(num1 + num2);
+				System.out.println(num1 + num2);  //Addition
 				break;
-			case "-":
-				System.out.println(num1 - num2);
+					
+			  case "-":
+					
+				System.out.println(num1 - num2);  //Subtraction
 				break;
-			case "*":
-				System.out.println(num1 * num2);
+					
+			  case "*":
+					
+				System.out.println(num1 * num2); //Multiplication
 				break;
-			case "/":
-				System.out.println(num1 / num2);
+					
+			  case "/":
+					
+				System.out.println(num1 / num2); //Division
 				break;
-			case "%":
-				System.out.println(num1 % num2);
-				
-				break;
-			default:
-				System.out.println("Invalid operation");
+					
+			  case "%":
+					
+				System.out.println(num1 % num2); //Modular Division
+			        break;
+			  default:
+					
+				System.out.println("Invalid operation"); //If User not Enter a valid Operation Then it will show these message
 			}
+			
 			System.out.println("\nPress Enter to continue...");
 			in.nextLine(); 
 			in.nextLine();
