@@ -35,6 +35,11 @@ public class StudentController {
 	{
 		return "login";
 	}
+	@GetMapping("/addmarks")
+	public String InsertAnotherResponse(Model model)
+	{
+		return "marksFillingForm";
+	}
 	@GetMapping("/registration") //Load the TeacherRegistration form for Teacher Registration 
 	public String TeacherRegistration(Model model)
 	{
